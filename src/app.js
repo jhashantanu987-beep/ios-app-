@@ -26,6 +26,15 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 
 /**
+ * Root Test Route
+ */
+app.get('/', (req, res) => {
+  res.status(200).json({
+    message: 'API running',
+  });
+});
+
+/**
  * Health Check Endpoint
  */
 app.get('/api/health', (req, res) => {

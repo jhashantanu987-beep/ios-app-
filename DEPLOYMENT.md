@@ -28,7 +28,7 @@ PORT=5000
 NODE_ENV=production
 
 # Database (MongoDB Atlas)
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/marketplace?retryWrites=true&w=majority
+MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/marketplace?retryWrites=true&w=majority
 
 # JWT (Use strong random string)
 JWT_SECRET=generate_strong_random_string_here_min_32_chars
@@ -75,13 +75,13 @@ heroku create marketplace-api
 4. **Set Environment Variables**
 ```bash
 heroku config:set NODE_ENV=production
-heroku config:set MONGODB_URI=mongodb+srv://...
+heroku config:set MONGO_URI=mongodb+srv://...
 heroku config:set JWT_SECRET=your_secret_key
 ```
 
 5. **Add MongoDB Atlas Connection String**
 ```bash
-heroku config:set MONGODB_URI="mongodb+srv://username:password@cluster.mongodb.net/marketplace"
+heroku config:set MONGO_URI="mongodb+srv://username:password@cluster.mongodb.net/marketplace"
 ```
 
 6. **Deploy**
@@ -182,7 +182,7 @@ services:
   envs:
   - key: NODE_ENV
     value: production
-  - key: MONGODB_URI
+  - key: MONGO_URI
     scope: RUN_AND_BUILD_TIME
     value: ${db.connection_string}
   http_port: 5000
@@ -236,7 +236,7 @@ docker build -t marketplace-api:1.0.0 .
 ```bash
 docker run -p 5000:5000 \
   -e NODE_ENV=production \
-  -e MONGODB_URI=mongodb+srv://... \
+  -e MONGO_URI=mongodb+srv://... \
   -e JWT_SECRET=your_secret \
   marketplace-api:1.0.0
 ```
@@ -271,7 +271,7 @@ docker push your-username/marketplace-api:1.0.0
 5. **Get Connection String**
    - Click "Connect"
    - Copy connection string
-   - Update MONGODB_URI in .env
+   - Update MONGO_URI in .env
 
 ---
 

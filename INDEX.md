@@ -277,7 +277,7 @@ See more examples in:
 - Check port not in use: `npm run dev`
 
 **Database connection error**
-- Check MONGODB_URI in .env
+- Check MONGO_URI in .env
 - Ensure MongoDB running: `mongod`
 - Verify connection string syntax
 

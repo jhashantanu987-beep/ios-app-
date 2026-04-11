@@ -26,7 +26,7 @@ mongod
 **Option B - MongoDB Atlas (Cloud)**
 1. Create account at https://www.mongodb.com/cloud/atlas
 2. Create a free cluster
-3. Update MONGODB_URI in .env with connection string
+# Update MONGO_URI in .env with connection string
 
 ### Step 4: Start the Server
 ```bash
@@ -192,7 +192,7 @@ PORT=5001
 # Check MongoDB is running
 mongod
 
-# Verify MONGODB_URI in .env is correct
+# Verify MONGO_URI in .env is correct
 ```
 
 ### JWT token issues

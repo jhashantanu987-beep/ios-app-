@@ -10,11 +10,14 @@ const PORT = process.env.PORT || 5000;
  */
 const startServer = async () => {
   try {
+    console.log('Loaded environment variables:');
+    console.log('MONGO_URI exists:', Boolean(process.env.MONGO_URI));
+
     // Connect to MongoDB
     await connectDB();
 
     // Start Express server
-    const server = app.listen(PORT, () => {
+    const server = app.listen(PORT, '0.0.0.0', () => {
       logger.success('Server started', {
         port: PORT,
         environment: process.env.NODE_ENV || 'development',

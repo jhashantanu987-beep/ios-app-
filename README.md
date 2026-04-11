@@ -95,7 +95,7 @@ Edit `.env` file and update:
 ```env
 PORT=5000
 NODE_ENV=development
-MONGODB_URI=mongodb://localhost:27017/marketplace
+MONGO_URI=mongodb://localhost:27017/marketplace
 JWT_SECRET=your_jwt_secret_key_change_this_in_production
 JWT_EXPIRE=7d
 CORS_ORIGIN=http://localhost:3000,http://localhost:3001
@@ -107,7 +107,7 @@ CORS_ORIGIN=http://localhost:3000,http://localhost:3001
 mongod
 
 # Or use MongoDB Atlas
-# Update MONGODB_URI in .env with your connection string
+# Update MONGO_URI in .env with your connection string
 ```
 
 5. **Start the server**
@@ -372,7 +372,7 @@ PORT=5000
 NODE_ENV=development
 
 # Database
-MONGODB_URI=mongodb://localhost:27017/marketplace
+MONGO_URI=mongodb://localhost:27017/marketplace
 
 # JWT
 JWT_SECRET=your_jwt_secret_key_change_this_in_production
@@ -496,7 +496,7 @@ npm test
 
 ### MongoDB Connection Error
 - Ensure MongoDB is running
-- Check MONGODB_URI in .env
+- Check MONGO_URI in .env
 - Verify database host is accessible
 
 ### JWT Token Expired

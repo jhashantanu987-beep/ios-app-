@@ -10,7 +10,14 @@ dns.setServers(['8.8.8.8', '8.8.4.4']);
  */
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGODB_URI, {
+    const uri = process.env.MONGO_URI;
+    console.log('MONGO_URI:', process.env.MONGO_URI);
+
+    if (!uri) {
+      throw new Error('MONGO_URI is not defined in environment variables');
+    }
+
+    const conn = await mongoose.connect(uri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
