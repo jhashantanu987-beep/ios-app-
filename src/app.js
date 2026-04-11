@@ -1,0 +1,61 @@
+const express = require('express');
+const cors = require('cors');
+const errorHandler = require('./middleware/errorHandler');
+const authRoutes = require('./routes/authRoutes');
+const listingRoutes = require('./routes/listingRoutes');
+
+const app = express();
+
+/**
+ * Middleware Configuration
+ */
+
+// CORS configuration
+const corsOptions = {
+  origin: (process.env.CORS_ORIGIN || 'http://localhost:3000').split(','),
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  maxAge: 86400, // 24 hours
+};
+
+app.use(cors(corsOptions));
+
+// Body parsing middleware
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ limit: '10mb', extended: true }));
+
+/**
+ * Health Check Endpoint
+ */
+app.get('/api/health', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'Server is running',
+    timestamp: new Date().toISOString(),
+  });
+});
+
+/**
+ * API Routes
+ */
+app.use('/api/auth', authRoutes);
+app.use('/api/listings', listingRoutes);
+
+/**
+ * 404 Handler
+ */
+app.use('*', (req, res) => {
+  res.status(404).json({
+    success: false,
+    message: `Route ${req.originalUrl} not found`,
+  });
+});
+
+/**
+ * Global Error Handler Middleware
+ * Must be last
+ */
+app.use(errorHandler);
+
+module.exports = app;
