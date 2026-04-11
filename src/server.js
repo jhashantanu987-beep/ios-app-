@@ -12,6 +12,8 @@ const startServer = async () => {
   try {
     console.log('Loaded environment variables:');
     console.log('MONGO_URI exists:', Boolean(process.env.MONGO_URI));
+    console.log('JWT_SECRET exists:', Boolean(process.env.JWT_SECRET));
+    console.log('NODE_ENV:', process.env.NODE_ENV || 'development');
 
     // Connect to MongoDB
     await connectDB();
