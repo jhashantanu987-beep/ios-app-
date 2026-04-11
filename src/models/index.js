@@ -2,7 +2,7 @@
  * Export all models
  */
 
-module.exports = {
-  User: require('./User'),
-  Listing: require('./Listing'),
-};
+import User from './User.js';
+import Listing from './Listing.js';
+
+export { User, Listing };

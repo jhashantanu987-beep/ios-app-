@@ -1,3 +1,3 @@
-const connectDB = require('./database');
+import connectDB from './database.js';
 
-module.exports = connectDB;
+export default connectDB;

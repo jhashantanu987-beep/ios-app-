@@ -1,13 +1,13 @@
 import express from "express";
-const authController = require('../controllers/authController');
-const { authMiddleware } = require('../middleware/auth');
-const validateRequest = require('../middleware/validation');
-const {
+import * as authController from "../controllers/authController.js";
+import { authMiddleware } from "../middleware/auth.js";
+import validateRequest from "../middleware/validation.js";
+import {
   registerValidation,
   loginValidation,
   changePasswordValidation,
   updateProfileValidation,
-} = require('../utils/validators');
+} from "../utils/validators.js";
 
 const router = express.Router();
 

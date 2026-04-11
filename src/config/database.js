@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const dns = require('dns');
+import mongoose from 'mongoose';
+import dns from 'dns';
 
 // Ensure Node uses reliable DNS servers for MongoDB Atlas SRV lookups
 dns.setServers(['8.8.8.8', '8.8.4.4']);
@@ -39,4 +39,4 @@ mongoose.connection.on('error', (error) => {
   console.error(`✗ MongoDB connection error: ${error.message}`);
 });
 
-module.exports = connectDB;
+export default connectDB;

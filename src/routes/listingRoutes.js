@@ -1,8 +1,8 @@
-const express = require('express');
-const listingController = require('../controllers/listingController');
-const { authMiddleware } = require('../middleware/auth');
-const validateRequest = require('../middleware/validation');
-const { createListingValidation } = require('../utils/validators');
+import express from 'express';
+import * as listingController from '../controllers/listingController.js';
+import { authMiddleware } from '../middleware/auth.js';
+import validateRequest from '../middleware/validation.js';
+import { createListingValidation } from '../utils/validators.js';
 
 const router = express.Router();
 
@@ -21,4 +21,4 @@ router.post(
 router.get('/', listingController.getAllListings);
 router.get('/:id', listingController.getListing);
 
-module.exports = router;
+export default router;

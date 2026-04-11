@@ -1,5 +1,5 @@
-const logger = require('../utils/logger');
-const { HTTP_STATUS, MESSAGES } = require('../utils/constants');
+import logger from '../utils/logger.js';
+import { HTTP_STATUS, MESSAGES } from '../utils/constants.js';
 
 /**
  * Global Error Handler Middleware
@@ -61,4 +61,4 @@ const errorHandler = (err, req, res, next) => {
   });
 };
 
-module.exports = errorHandler;
+export default errorHandler;

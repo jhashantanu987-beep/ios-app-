@@ -1,6 +1,6 @@
-const express = require('express');
-const cors = require('cors');
-const errorHandler = require('./middleware/errorHandler');
+import express from 'express';
+import cors from 'cors';
+import errorHandler from './middleware/errorHandler.js';
 import authRoutes from "./routes/authRoutes.js";
 import listingRoutes from "./routes/listingRoutes.js";
 
@@ -70,4 +70,4 @@ app.use('*', (req, res) => {
  */
 app.use(errorHandler);
 
-module.exports = app;
+export default app;

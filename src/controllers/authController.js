@@ -1,5 +1,5 @@
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+import jwt from 'jsonwebtoken';
+import User from '../models/User.js';
 
 /**
  * Generate JWT Token
@@ -14,7 +14,7 @@ const generateToken = (userId) => {
  * User Registration
  * POST /api/auth/register
  */
-exports.register = async (req, res, next) => {
+export const register = async (req, res, next) => {
   try {
     const { name, email, password, confirmPassword } = req.body;
 
@@ -67,7 +67,7 @@ exports.register = async (req, res, next) => {
  * User Login
  * POST /api/auth/login
  */
-exports.login = async (req, res, next) => {
+export const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
 
@@ -123,7 +123,7 @@ exports.login = async (req, res, next) => {
  * GET /api/auth/me
  * Requires authentication
  */
-exports.getCurrentUser = async (req, res, next) => {
+export const getCurrentUser = async (req, res, next) => {
   try {
     const user = await User.findById(req.user.id);
 
@@ -160,7 +160,7 @@ exports.getCurrentUser = async (req, res, next) => {
  * PUT /api/auth/profile
  * Requires authentication
  */
-exports.updateProfile = async (req, res, next) => {
+export const updateProfile = async (req, res, next) => {
   try {
     const { name, bio, phone, avatar, address } = req.body;
 
@@ -198,7 +198,7 @@ exports.updateProfile = async (req, res, next) => {
  * POST /api/auth/change-password
  * Requires authentication
  */
-exports.changePassword = async (req, res, next) => {
+export const changePassword = async (req, res, next) => {
   try {
     const { currentPassword, newPassword, confirmPassword } = req.body;
 

@@ -5,7 +5,7 @@
 /**
  * Generate pagination object
  */
-exports.getPagination = (page = 1, limit = 10) => {
+export const getPagination = (page = 1, limit = 10) => {
   const pageNum = parseInt(page, 10) || 1;
   const limitNum = parseInt(limit, 10) || 10;
   const skip = (pageNum - 1) * limitNum;
@@ -16,7 +16,7 @@ exports.getPagination = (page = 1, limit = 10) => {
 /**
  * Build filter object based on query params
  */
-exports.buildFilter = (queryParams) => {
+export const buildFilter = (queryParams) => {
   const filter = {};
 
   if (queryParams.category && queryParams.category !== 'all') {
@@ -47,14 +47,14 @@ exports.buildFilter = (queryParams) => {
 /**
  * Check if user is authorized
  */
-exports.isOwner = (resourceOwnerId, userId) => {
+export const isOwner = (resourceOwnerId, userId) => {
   return resourceOwnerId.toString() === userId;
 };
 
 /**
  * Format response object
  */
-exports.formatResponse = (success, message, data = null, errors = null) => {
+export const formatResponse = (success, message, data = null, errors = null) => {
   const response = {
     success,
     message,
@@ -74,7 +74,7 @@ exports.formatResponse = (success, message, data = null, errors = null) => {
 /**
  * Calculate rating average
  */
-exports.calculateRatingAverage = (ratings) => {
+export const calculateRatingAverage = (ratings) => {
   if (ratings.length === 0) return 0;
   const total = ratings.reduce((acc, rating) => acc + rating, 0);
   return (total / ratings.length).toFixed(1);
@@ -83,7 +83,7 @@ exports.calculateRatingAverage = (ratings) => {
 /**
  * Sanitize user object
  */
-exports.sanitizeUser = (user) => {
+export const sanitizeUser = (user) => {
   const userObj = user.toObject ? user.toObject() : user;
   delete userObj.password;
   return userObj;
@@ -92,7 +92,7 @@ exports.sanitizeUser = (user) => {
 /**
  * Parse sort string (e.g., "-createdAt" -> {createdAt: -1})
  */
-exports.parseSortString = (sortString) => {
+export const parseSortString = (sortString) => {
   const sortObj = {};
 
   if (!sortString) return { createdAt: -1 };
@@ -112,7 +112,7 @@ exports.parseSortString = (sortString) => {
 /**
  * Calculate distance between two coordinates (Haversine formula)
  */
-exports.calculateDistance = (lat1, lon1, lat2, lon2) => {
+export const calculateDistance = (lat1, lon1, lat2, lon2) => {
   const R = 3959; // Earth's radius in miles
   const dLat = ((lat2 - lat1) * Math.PI) / 180;
   const dLon = ((lon2 - lon1) * Math.PI) / 180;

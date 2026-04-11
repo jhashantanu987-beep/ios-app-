@@ -1,9 +1,9 @@
-const { body } = require('express-validator');
+import { body } from 'express-validator';
 
 /**
  * Validation Rules for Authentication
  */
-exports.registerValidation = [
+export const registerValidation = [
   body('name')
     .trim()
     .notEmpty()
@@ -27,7 +27,7 @@ exports.registerValidation = [
     .withMessage('Passwords do not match'),
 ];
 
-exports.loginValidation = [
+export const loginValidation = [
   body('email')
     .trim()
     .isEmail()
@@ -38,7 +38,7 @@ exports.loginValidation = [
     .withMessage('Password is required'),
 ];
 
-exports.changePasswordValidation = [
+export const changePasswordValidation = [
   body('currentPassword')
     .notEmpty()
     .withMessage('Current password is required'),
@@ -53,7 +53,7 @@ exports.changePasswordValidation = [
 /**
  * Validation Rules for Listings
  */
-exports.createListingValidation = [
+export const createListingValidation = [
   body('title')
     .trim()
     .notEmpty()
@@ -82,7 +82,7 @@ exports.createListingValidation = [
     .withMessage('Location must be between 3 and 200 characters'),
 ];
 
-exports.updateProfileValidation = [
+export const updateProfileValidation = [
   body('name')
     .optional()
     .trim()

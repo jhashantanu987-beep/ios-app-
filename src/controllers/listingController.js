@@ -1,13 +1,13 @@
-const Listing = require('../models/Listing');
-const { formatResponse, isOwner } = require('../utils/helpers');
-const { HTTP_STATUS } = require('../utils/constants');
+import Listing from '../models/Listing.js';
+import { formatResponse, isOwner } from '../utils/helpers.js';
+import { HTTP_STATUS } from '../utils/constants.js';
 
 /**
  * Create Listing
  * POST /api/listings
  * Requires authentication
  */
-exports.createListing = async (req, res, next) => {
+export const createListing = async (req, res, next) => {
   try {
     const { title, description, price, images, location } = req.body;
 
@@ -34,7 +34,7 @@ exports.createListing = async (req, res, next) => {
  * Get All Listings
  * GET /api/listings
  */
-exports.getAllListings = async (req, res, next) => {
+export const getAllListings = async (req, res, next) => {
   try {
     const listings = await Listing.find()
       .populate('userId', 'name email')
@@ -52,7 +52,7 @@ exports.getAllListings = async (req, res, next) => {
  * Get Single Listing by ID
  * GET /api/listings/:id
  */
-exports.getListing = async (req, res, next) => {
+export const getListing = async (req, res, next) => {
   try {
     const { id } = req.params;
 

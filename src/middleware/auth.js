@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken';
 
 const createAuthError = (message, statusCode = 401) => {
   const error = new Error(message);
@@ -44,7 +44,4 @@ const optionalAuth = (req, res, next) => {
   }
 };
 
-module.exports = {
-  authMiddleware,
-  optionalAuth,
-};
+export { authMiddleware, optionalAuth };

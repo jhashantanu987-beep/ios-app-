@@ -43,7 +43,7 @@ const log = (level, message, data = null) => {
   }
 };
 
-module.exports = {
+export default {
   error: (message, data) => log(logLevel.ERROR, message, data),
   warn: (message, data) => log(logLevel.WARN, message, data),
   info: (message, data) => log(logLevel.INFO, message, data),

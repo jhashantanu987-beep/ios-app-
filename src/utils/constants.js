@@ -3,7 +3,7 @@
  */
 
 // Categories
-exports.LISTING_CATEGORIES = [
+export const LISTING_CATEGORIES = [
   'Electronics',
   'Clothing',
   'Furniture',
@@ -15,14 +15,14 @@ exports.LISTING_CATEGORIES = [
 ];
 
 // Listing Status
-exports.LISTING_STATUS = {
+export const LISTING_STATUS = {
   ACTIVE: 'active',
   SOLD: 'sold',
   INACTIVE: 'inactive',
 };
 
 // Item Condition
-exports.ITEM_CONDITION = {
+export const ITEM_CONDITION = {
   NEW: 'New',
   LIKE_NEW: 'Like New',
   GOOD: 'Good',
@@ -30,13 +30,13 @@ exports.ITEM_CONDITION = {
 };
 
 // User Roles
-exports.USER_ROLES = {
+export const USER_ROLES = {
   USER: 'user',
   ADMIN: 'admin',
 };
 
 // HTTP Status Codes
-exports.HTTP_STATUS = {
+export const HTTP_STATUS = {
   OK: 200,
   CREATED: 201,
   BAD_REQUEST: 400,
@@ -48,32 +48,32 @@ exports.HTTP_STATUS = {
 };
 
 // Pagination
-exports.DEFAULT_PAGE = 1;
-exports.DEFAULT_LIMIT = 12;
-exports.MAX_LIMIT = 100;
+export const DEFAULT_PAGE = 1;
+export const DEFAULT_LIMIT = 12;
+export const MAX_LIMIT = 100;
 
 // Password Requirements
-exports.PASSWORD_RULES = {
+export const PASSWORD_RULES = {
   MIN_LENGTH: 6,
   PATTERN: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/,
 };
 
 // Token Expiry
-exports.TOKEN_EXPIRY = {
+export const TOKEN_EXPIRY = {
   SHORT: '1h',
   STANDARD: '7d',
   LONG: '30d',
 };
 
 // File Upload
-exports.UPLOAD_LIMITS = {
+export const UPLOAD_LIMITS = {
   IMAGE_SIZE: 5 * 1024 * 1024, // 5MB
   MAX_IMAGES: 10,
   MAX_FILE_SIZE: 10 * 1024 * 1024, // 10MB
 };
 
 // String Limits
-exports.STRING_LIMITS = {
+export const STRING_LIMITS = {
   NAME_MIN: 2,
   NAME_MAX: 50,
   TITLE_MIN: 3,
@@ -84,7 +84,7 @@ exports.STRING_LIMITS = {
 };
 
 // API Messages
-exports.MESSAGES = {
+export const MESSAGES = {
   SUCCESS: 'Operation successful',
   ERROR: 'Something went wrong',
   UNAUTHORIZED: 'Unauthorized access',
