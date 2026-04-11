@@ -1,8 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const errorHandler = require('./middleware/errorHandler');
-const authRoutes = require('./routes/authRoutes');
-const listingRoutes = require('./routes/listingRoutes');
+import authRoutes from "./routes/authRoutes.js";
+import listingRoutes from "./routes/listingRoutes.js";
 
 const app = express();
 
@@ -48,8 +48,11 @@ app.get('/api/health', (req, res) => {
 /**
  * API Routes
  */
+console.log('Loading API routes...');
 app.use('/api/auth', authRoutes);
+console.log('✓ Auth routes mounted at /api/auth');
 app.use('/api/listings', listingRoutes);
+console.log('✓ Listing routes mounted at /api/listings');
 
 /**
  * 404 Handler

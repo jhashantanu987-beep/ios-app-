@@ -1,4 +1,4 @@
-const express = require('express');
+import express from "express";
 const authController = require('../controllers/authController');
 const { authMiddleware } = require('../middleware/auth');
 const validateRequest = require('../middleware/validation');
@@ -14,6 +14,11 @@ const router = express.Router();
 /**
  * Auth Routes
  */
+
+// Test route
+router.get('/test', (req, res) => {
+  res.json({ message: 'auth route working' });
+});
 
 // Public routes
 router.post('/register', registerValidation, validateRequest, authController.register);
@@ -36,4 +41,4 @@ router.post(
   authController.changePassword
 );
 
-module.exports = router;
+export default router;
